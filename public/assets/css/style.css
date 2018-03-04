@@ -1,0 +1,9 @@
+h1, h6 {
+    text-align: center;
+    color: #4cc5f1;
+    margin: 0;
+    padding: 20px 0;
+}
+.header, .footer {
+    background-color: #304555;
+}

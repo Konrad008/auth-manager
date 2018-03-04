@@ -1,43 +1,34 @@
 <?php
 namespace Manager;
 
-class ManagerRoutes implements \Framework\Routes {
+use Framework\Routes;
+use \Manager\Controllers\AuthManager;
+
+class ManagerRoutes implements Routes {
     public function getRoutes() {
-        include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        $jokesTable = new \Ninja\DatabaseTable($pdo, 'joke', 'id');
-        $authorsTable = new \Ninja\DatabaseTable($pdo, 'author', 'id');
-
-        $jokeController = new \Ijdb\Controllers\Joke($jokesTable, $authorsTable);
+        $managerController = new AuthManager();
 
         $routes = [
-            'joke/edit' => [
+            '' => [
                 'POST' => [
-                    'controller' => $jokeController,
-                    'action' => 'saveEdit'
+                    'controller' => $managerController,
+                    'action' => 'show'
                 ],
                 'GET' => [
-                    'controller' => $jokeController,
-                    'action' => 'edit'
+                    'controller' => $managerController,
+                    'action' => 'show'
                 ]
 
             ],
-            'joke/delete' => [
+            'misja' => [
                 'POST' => [
-                    'controller' => $jokeController,
-                    'action' => 'delete'
-                ]
-            ],
-            'joke/list' => [
+                    'controller' => $managerController,
+                    'action' => 'show'
+                ],
                 'GET' => [
-                    'controller' => $jokeController,
-                    'action' => 'list'
-                ]
-            ],
-            '' => [
-                'GET' => [
-                    'controller' => $jokeController,
-                    'action' => 'home'
+                    'controller' => $managerController,
+                    'action' => 'show'
                 ]
             ]
         ];

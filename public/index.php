@@ -1,6 +1,9 @@
 <?php
+/*
+ * Original project of REST controller (c) Tom Butler https://r.je/
+ */
 try {
-    require __DIR__ . '../vendor/autoload.php';
+    require __DIR__ . '/../vendor/autoload.php';
 
     $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
 
@@ -10,8 +13,7 @@ try {
 catch (PDOException $e) {
     $title = 'An error has occurred';
 
-    $output = 'Database error: ' . $e->getMessage() . ' in ' .
-        $e->getFile() . ':' . $e->getLine();
+    $output = 'Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
 
     include  __DIR__ . '/../templates/layout.html.php';
 }

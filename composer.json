@@ -7,8 +7,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Manager\\": "classes/Manager",
-            "Framework\\": "classes/Framework"
+            "Manager\\": "classes/Manager/",
+            "Framework\\": "classes/Framework/"
         }
     },
     "license": "MIT",
