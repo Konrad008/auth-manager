@@ -1,0 +1,15 @@
+{
+    "name": "konrad008/auth-manager",
+    "description": "Basic Apache2 authentication manager",
+    "type": "project",
+    "require": {
+        "rafaelgou/php-apache2-basic-auth": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konrad008",
+            "email": "kontakt@konradalbrecht.pl"
+        }
+    ]
+}
