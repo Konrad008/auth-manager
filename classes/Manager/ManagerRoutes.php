@@ -1,10 +1,9 @@
 <?php
 namespace Manager;
 
-use Framework\Routes;
 use \Manager\Controllers\AuthManager;
 
-class ManagerRoutes implements Routes {
+class ManagerRoutes {
     public function getRoutes() {
 
         $managerController = new AuthManager();
@@ -13,22 +12,77 @@ class ManagerRoutes implements Routes {
             '' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'show'
+                    'action' => 'mainPage'
                 ],
                 'GET' => [
                     'controller' => $managerController,
-                    'action' => 'show'
+                    'action' => 'mainPage'
                 ]
-
             ],
-            'misja' => [
+            'useradd' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'show'
+                    'action' => 'userAdd'
                 ],
                 'GET' => [
                     'controller' => $managerController,
-                    'action' => 'show'
+                    'action' => 'userAdding'
+                ]
+            ],
+            'useredit' => [
+                'POST' => [
+                    'controller' => $managerController,
+                    'action' => 'userEdit',
+                    'urlVars' => true
+                ],
+                'GET' => [
+                    'controller' => $managerController,
+                    'action' => 'editingUser',
+                    'urlVars' => true
+                ]
+            ],
+            'userdelete' => [
+                'POST' => [
+                    'controller' => $managerController,
+                    'action' => 'mainPage'
+                ],
+                'GET' => [
+                    'controller' => $managerController,
+                    'action' => 'userDelete',
+                    'urlVars' => true
+                ]
+            ],
+            'groupadd' => [
+                'POST' => [
+                    'controller' => $managerController,
+                    'action' => 'addGroup',
+                    'urlVars' => true
+                ],
+                'GET' => [
+                    'controller' => $managerController,
+                    'action' => 'addingGroup'
+                ]
+            ],
+            'groupedit' => [
+                'POST' => [
+                    'controller' => $managerController,
+                    'action' => 'editGroup',
+                    'urlVars' => true
+                ],
+                'GET' => [
+                    'controller' => $managerController,
+                    'action' => 'editingGroup'
+                ]
+            ],
+            'groupdelete' => [
+                'POST' => [
+                    'controller' => $managerController,
+                    'action' => 'deleteUser',
+                    'urlVars' => true
+                ],
+                'GET' => [
+                    'controller' => $managerController,
+                    'action' => 'mainPage'
                 ]
             ]
         ];

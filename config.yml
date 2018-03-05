@@ -1,0 +1,9 @@
+# Base URL
+baseUrl: http://localhost/
+
+# Path to Apache2 files
+htpasswd: '/var/www/pass/.htpasswd'
+htgroups: '/var/www/pass/.htgroup'
+
+# Debug
+debug: false
