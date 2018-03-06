@@ -55,12 +55,11 @@ class ManagerRoutes {
             'groupadd' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'addGroup',
-                    'urlVars' => true
+                    'action' => 'groupAdd'
                 ],
                 'GET' => [
                     'controller' => $managerController,
-                    'action' => 'addingGroup'
+                    'action' => 'groupAdding'
                 ]
             ],
             'groupedit' => [

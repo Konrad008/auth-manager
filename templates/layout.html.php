@@ -24,7 +24,7 @@
     <section class="container">
         <div class="row">
             <div class="column">
-                <h6>BlueNote <?=date("Y")?></h6>
+                <h6>for BlueNote <?=date("Y")?></h6>
             </div>
         </div>
     </section>

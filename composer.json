@@ -3,7 +3,7 @@
     "description": "Basic Apache2 authentication manager",
     "type": "project",
     "require": {
-        "rafaelgou/php-apache2-basic-auth": "^1.0"
+        "whitehat101/apr1-md5": "^1.0"
     },
     "autoload": {
         "psr-4": {

@@ -1,7 +1,7 @@
 <?php
 namespace Manager\Controllers;
 
-use Apache2BasicAuth\Service as HTService;
+use Manager\htmanager\htmanager;
 
 class AuthManager
 {
@@ -13,57 +13,66 @@ class AuthManager
         $yamlFile = fopen($fileName, 'r') or die("Unable to open file!");
         $yaml = yaml_parse(fread($yamlFile,filesize($fileName)));
 
-        $this->htservice = new HTService($yaml['htpasswd'], $yaml['htgroups']);
+        $this->htservice = new htmanager($yaml['htpasswd'], $yaml['htgroups']);
     }
 
     public function mainPage()
     {
-        $usernames = $this->htservice->getUsernames();
-        $users = $this->htservice->getUsers();
-        $groupsnames = $this->htservice->getGroupNames();
+        $usersWithGroups = [];
+        $groupsWithUsers = [];
+
         $groups = $this->htservice->getGroups();
+        $users  = $this->htservice->getUsers();
+
+        foreach ($users as  $user) {
+            $usersWithGroups[$user] = $this->htservice->getUserGroups($user);
+        }
+        foreach ($groups as $group) {
+            $groupsWithUsers[$group] = $this->htservice->getGroupUsers($group);
+        }
 
         return [
             'template' => 'main.html.php',
             'title' => 'AM Dashboard',
             'variables' => [
-                'usernames' => $usernames,
-                'users' => $users,
-                'groupsnames' => $groupsnames,
-                'groups' => $groups,
+                'users' => $usersWithGroups,
+                'groups' => $groupsWithUsers,
             ],
             ];
     }
 
     public function userDelete($user)
     {
-        $user = $this->htservice->findUser($user[0]);
-        $this->htservice->removeUser($user);
-        $this->htservice->write();
+
 
         header('location: /');
     }
+
     public function userAdd()
     {
-        print_r($_POST);
-        $user = $this->htservice->createUser();
-
-        $user->setUsername($_POST['user'])
-            ->setPassword($_POST['password']);
-
-        $this->htservice->persist($user);
-
-        $this->htservice->write();
-
-        setcookie('notice', $_POST['user']);
+        $this->htservice->addUser($_POST['user'], $_POST['password']);
 
         header('location: /');
     }
+
     public function userAdding()
     {
         return [
             'template' => 'addUser.html.php',
             'title' => 'AM AddUser'
+        ];
+    }
+
+    public function groupAdd()
+    {
+
+    }
+
+    public function groupAdding()
+    {
+        return [
+            'template' => 'addGroup.html.php',
+            'title' => 'AM AddGroup'
         ];
     }
 }
