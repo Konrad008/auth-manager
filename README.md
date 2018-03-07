@@ -19,3 +19,5 @@ pytania do
   $obiekt->metoda1()
          ->metoda2()
          ->metoda3();
+         
+4. PSR i dlugosc lini - robic po prostu ENTER xD ?!
