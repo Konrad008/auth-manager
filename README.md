@@ -21,3 +21,13 @@ pytania do
          ->metoda3();
          
 4. PSR i dlugosc lini - robic po prostu ENTER xD ?!
+
+------------------------------------------
+
+Uzytkownik widmo przy edytowaniu grupy.
+Tworzeni pliku w przypadku braku jego na dysku.
+
+- tail -f /sciezka/plik
+- headery z duzej litery
+- xdebug do phpstorma
+
