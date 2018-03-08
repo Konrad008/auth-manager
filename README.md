@@ -20,6 +20,8 @@ pytania do
          ->metoda2()
          ->metoda3();
          
+   ----odpowiedz---- RETURN $THIS; ----odpowiedz----
+         
 4. PSR i dlugosc lini - robic po prostu ENTER xD ?!
 
 ------------------------------------------
@@ -35,5 +37,5 @@ w username nie moze byc :
 - www . online php functions
 - happypass (nie schodzic nizej niz 2gi poziom kodu starac sie robic w aplikacji | w przypatku braku problemow.
 
-naucz sie shortcutow do phpstorm (shift+tab) (ctrl+e) inteliJ shortcuts youtube mail
+naucz sie shortcutow do phpstorm (shift+tab) (ctrl+e) (alt+1) (alt+9) inteliJ shortcuts youtube mail
 odswiezyc sobie best practices do symfony
