@@ -26,8 +26,13 @@ pytania do
 
 Uzytkownik widmo przy edytowaniu grupy.
 Tworzeni pliku w przypadku braku jego na dysku.
+w username nie moze byc :
 
-- tail -f /sciezka/plik
+- tail -f /sciezka/plik (ogarnac 
 - headery z duzej litery
-- xdebug do phpstorma
+- xdebug do phpstorma 
+- php inspections (EA extended)
+- www . online php functions
+- happypass (nie schodzic nizej niz 2gi poziom kodu starac sie robic w aplikacji | w przypatku braku problemow.
 
+naucz sie shortcutow do phpstorm
