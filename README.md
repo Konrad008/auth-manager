@@ -22,8 +22,6 @@ pytania do
          
 4. PSR i dlugosc lini - robic po prostu ENTER xD ?!
 
-
-
 ------------------------------------------
 
 Uzytkownik widmo przy edytowaniu grupy.
@@ -37,5 +35,5 @@ w username nie moze byc :
 - www . online php functions
 - happypass (nie schodzic nizej niz 2gi poziom kodu starac sie robic w aplikacji | w przypatku braku problemow.
 
-naucz sie shortcutow do phpstorm
+naucz sie shortcutow do phpstorm (shift+tab) (ctrl+e) inteliJ shortcuts youtube mail
 odswiezyc sobie best practices do symfony
