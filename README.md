@@ -29,6 +29,7 @@ pytania do
 Uzytkownik widmo przy edytowaniu grupy.
 Tworzeni pliku w przypadku braku jego na dysku.
 w username nie moze byc :
+problem z extract musze sprawdac czy istniej dany uzytkownik przed przerobieniem
 
 - tail -f /sciezka/plik (ogarnac 
 - headery z duzej litery
@@ -39,3 +40,5 @@ w username nie moze byc :
 
 naucz sie shortcutow do phpstorm (shift+tab) (ctrl+e) (alt+1) (alt+9) inteliJ shortcuts youtube mail
 odswiezyc sobie best practices do symfony
+
+przeczytaj extract o extract exploit
