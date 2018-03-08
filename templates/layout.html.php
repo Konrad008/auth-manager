@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="/assets/css/milligram.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/finalStyle.css">
     <title><?=$title?></title>
 </head>
 <body>
@@ -25,13 +24,11 @@
 </main>
 
 <footer class="footer">
-    <section class="container">
         <div class="row">
             <div class="column">
                 <h6>for BlueNote <?=date("Y")?></h6>
             </div>
         </div>
-    </section>
 </footer>
 </body>
 </html>

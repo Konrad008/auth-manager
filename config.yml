@@ -1,9 +1,14 @@
-# Base URL
-baseUrl: http://localhost/
+# Customize path to Apache2 files
 
-# Path to Apache2 files
 htpasswd: '/var/www/pass/.htpasswd'
 htgroups: '/var/www/pass/.htgroup'
 
-# Debug
-debug: false
+# .htgroup example
+#
+# admin: admin kondzio
+# blogger: kondzio
+
+# .htpasswd example
+#
+# admin:$apr1$pKYs39Ft$fAxY5gfKd40wnnvTkwMay/
+# kondzio:$apr1$74rwiiOD$4cOa910UDulLG9ZT0PL0e.

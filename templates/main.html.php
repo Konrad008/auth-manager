@@ -1,4 +1,3 @@
-<div class="container">
     <div class="row">
         <div class="column">
             <table>
@@ -45,5 +44,3 @@
             </table>
         </div>
     </div>
-
-</div>
