@@ -22,6 +22,8 @@ pytania do
          
 4. PSR i dlugosc lini - robic po prostu ENTER xD ?!
 
+
+
 ------------------------------------------
 
 Uzytkownik widmo przy edytowaniu grupy.
@@ -36,3 +38,4 @@ w username nie moze byc :
 - happypass (nie schodzic nizej niz 2gi poziom kodu starac sie robic w aplikacji | w przypatku braku problemow.
 
 naucz sie shortcutow do phpstorm
+odswiezyc sobie best practices do symfony
