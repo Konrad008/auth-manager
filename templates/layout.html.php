@@ -12,8 +12,12 @@
 </head>
 <body>
 <header class="header">
-    <h1>Authentication Manager</h1>
+    <h1><a href="/">❰Authentication Manager❱</a></h1>
     <nav class="navigation">
+        <ul>
+            <a href="/useradd"><li>Add User</li></a>
+            <a href="/groupadd"><li>Add Group</li></a>
+        </ul>
     </nav>
 </header>
 <main class="container">

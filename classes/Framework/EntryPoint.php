@@ -3,12 +3,34 @@ namespace Framework;
 
 use Manager\ManagerRoutes;
 
+/**
+ * Class EntryPoint
+ * @package Framework
+ */
 class EntryPoint {
+    /**
+     * @var string
+     */
     private $route;
+    /**
+     * @var string
+     */
     private $method;
+    /**
+     * @var array
+     */
     private $routes;
+    /**
+     * @var
+     */
     private $routevars;
 
+    /**
+     * EntryPoint constructor.
+     * @param string $route
+     * @param string $method
+     * @param ManagerRoutes $routes
+     */
     public function __construct(string $route, string $method, ManagerRoutes $routes) {
         $this->route = $route;
         $this->method = $method;
@@ -22,12 +44,18 @@ class EntryPoint {
         $this->checkUrl();
     }
 
+    /**
+     *
+     */
     private function processUrl() {
         $args = explode("/", $this->route);
         $this->route = array_shift($args);
         $this->routevars = $args;
     }
 
+    /**
+     *
+     */
     private function checkUrl() {
 
         // Ask about differences between httpie responses and browser.
@@ -43,6 +71,11 @@ class EntryPoint {
         }
     }
 
+    /**
+     * @param $templateFileName
+     * @param array $variables
+     * @return string
+     */
     private function loadTemplate($templateFileName, $variables = []) {
         extract($variables);
 
@@ -52,6 +85,9 @@ class EntryPoint {
         return ob_get_clean();
     }
 
+    /**
+     *
+     */
     public function run() {
 
         $controller = ($this->routes)[$this->route][$this->method]['controller'];

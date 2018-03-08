@@ -4,8 +4,10 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Users</th>
+                    <th>User</th>
                     <th>Groups</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -13,6 +15,8 @@
                 <tr>
                     <td><?=$user?></td>
                     <td><?php foreach ($groups as $group) {echo $group.' ';} ?></td>
+                    <td class="iamlazy"><span class="mainpage-button"><a href="/useredit/<?=$user?>">✎</a></span></td>
+                    <td class="iamlazy"><span class="mainpage-button"><a href="/userdelete/<?=$user?>">✗</a></span></td>
                 </tr>
                 <?php endforeach ?>
                 </tbody>
@@ -22,14 +26,21 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Groups</th>
+                    <th>Group</th>
                     <th>Users</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php foreach($grupy as $group => $users): ?>
                     <tr>
-
+                        <td><?=$group?></td>
+                        <td><?php foreach ($users as $user) {echo $user.' ';} ?></td>
+                        <td class="iamlazy"><span class="mainpage-button"><a href="/groupedit/<?=$group?>">✎</a></span></td>
+                        <td class="iamlazy"><span class="mainpage-button"><a href="/groupdelete/<?=$group?>">✗</a></span></td>
                     </tr>
+                <?php endforeach ?>
                 </tbody>
             </table>
         </div>
