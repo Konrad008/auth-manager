@@ -147,7 +147,7 @@ input[type='password'] {
 }
 
 input[type='text']:focus,
-input[type='password']:focus{
+input[type='password']:focus {
     border-color: #4cc5f1;
     outline: 0;
 }
@@ -255,10 +255,12 @@ th:last-child {
     background: #304555;
     border: solid 2px #4cc5f1;
     margin: 5px;
+
 }
 
 .navigation > ul > a > li:hover {
     color: #4FD0FF;
+    box-shadow: 0px 0px 3px 1px;
 }
 
 /*Responsive*/
@@ -269,8 +271,15 @@ th:last-child {
         margin-left: -1rem;
         width: calc(100% + 2.0rem);
     }
+
     .row .column {
         margin-bottom: inherit;
         padding: 0 1rem;
+    }
+}
+
+@media (max-width: 40rem) {
+    h1 {
+        font-size: 4rem;
     }
 }

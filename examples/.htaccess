@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "Auth-Manager"
+AuthBasicProvider file
+AuthUserFile "/var/www/pass/.htpasswd"
+AuthGroupFile "/var/www/pass/.htgroup"
+Require group admin

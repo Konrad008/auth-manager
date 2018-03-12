@@ -2,7 +2,7 @@
     <fieldset>
         <label>
             <p>Username</p>
-            <input type="text" placeholder="Insert user name" name="user" required>
+            <input type="text" id="username" placeholder="Insert user name" name="user" required>
         </label>
         <label>
             <p>Password</p>

@@ -9,11 +9,10 @@ try {
 
     $entryPoint = new \Framework\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Manager\ManagerRoutes());
     $entryPoint->run();
-}
-catch (PDOException $e) {
+} catch (PDOException $e) {
     $title = 'An error has occurred';
 
     $output = 'Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
 
-    include  __DIR__ . '/../templates/layout.html.php';
+    include __DIR__ . '/../templates/layout.html.php';
 }

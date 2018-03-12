@@ -1,4 +1,5 @@
 <?php
+
 namespace Manager\Controllers;
 
 use Manager\htmanager\htmanager;
@@ -20,9 +21,9 @@ class AuthManager
      */
     public function __construct()
     {
-        $fileName = __DIR__.'/../../../config.yml';
+        $fileName = __DIR__ . '/../../../config.yml';
         $yamlFile = fopen($fileName, 'r') or die("Unable to open file!");
-        $yaml = yaml_parse(fread($yamlFile,filesize($fileName)));
+        $yaml = yaml_parse(fread($yamlFile, filesize($fileName)));
 
         $this->htservice = new htmanager($yaml['htpasswd'], $yaml['htgroups']);
     }
@@ -36,9 +37,9 @@ class AuthManager
         $groupsWithUsers = [];
 
         $groups = $this->htservice->getGroups();
-        $users  = $this->htservice->getUsers();
+        $users = $this->htservice->getUsers();
 
-        foreach ($users as  $user) {
+        foreach ($users as $user) {
             $usersWithGroups[$user] = $this->htservice->getUserGroups($user);
         }
         foreach ($groups as $group) {
@@ -52,37 +53,34 @@ class AuthManager
                 'users' => $usersWithGroups,
                 'grupy' => $groupsWithUsers,
             ],
-            ];
+        ];
     }
 
     /**
      * @param $user
      */
-    public function userDelete($user)
+    public function userDelete(array $user)
     {
         $this->htservice->deleteUser($user[0]);
 
-        header('location: /');
+        header('Location: /');
     }
-
+    
     /**
      * @param $group
      */
-    public function groupDelete($group)
+    public function groupDelete(array $group)
     {
         $this->htservice->deleteGroup($group[0]);
 
-        header('location: /');
+        header('Location: /');
     }
 
-    /**
-     *
-     */
     public function userAdd()
     {
         $this->htservice->saveUser($_POST['user'], $_POST['password']);
 
-        header('location: /');
+        header('Location: /');
     }
 
     /**
@@ -96,14 +94,11 @@ class AuthManager
         ];
     }
 
-    /**
-     *
-     */
     public function groupAdd()
     {
         $this->htservice->saveGroup($_POST['group']);
 
-        header('location: /');
+        header('Location: /');
     }
 
     /**
@@ -117,21 +112,22 @@ class AuthManager
         ];
     }
 
-    /**
-     *
-     */
     public function userEdit()
     {
+        if (!isset($_POST['groups'])) {
+            $_POST['groups'] = [];
+        }
+
         $this->htservice->editUser($_POST['user'], $_POST['groups'], $_POST['newuser']);
 
-        header('location: /');
+        header('Location: /');
     }
 
     /**
      * @param $user
      * @return array
      */
-    public function userEditing($user)
+    public function userEditing(array $user)
     {
         $tmpArray = $this->htservice->getActiveGroups($user[0]);
 
@@ -142,7 +138,7 @@ class AuthManager
                 'user' => $user[0],
                 'activegroups' => $tmpArray[0],
                 'inactivegroups' => $tmpArray[1],
-                ],
+            ],
         ];
     }
 
@@ -150,7 +146,7 @@ class AuthManager
      * @param $user
      * @return array
      */
-    public function passwordChanging($user)
+    public function passwordChanging(array $user)
     {
 
         return [
@@ -158,35 +154,33 @@ class AuthManager
             'title' => 'AM Change password',
             'variables' => [
                 'user' => $user[0],
-                ],
+            ],
         ];
     }
 
-    /**
-     *
-     */
     public function passwordChange()
     {
         $this->htservice->saveUser($_POST['user'], $_POST['password']);
 
-        header('location: /');
+        header('Location: /');
     }
 
-    /**
-     *
-     */
     public function groupEdit()
     {
+        if (!isset($_POST['users'])) {
+            $_POST['users'] = [];
+        }
+
         $this->htservice->editGroup($_POST['group'], $_POST['users'], $_POST['newgroup']);
 
-        header('location: /');
+        header('Location: /');
     }
 
     /**
      * @param $group
      * @return array
      */
-    public function groupEditing($group)
+    public function groupEditing(array $group)
     {
         $tmpArray = $this->htservice->getActiveUsers($group[0]);
 

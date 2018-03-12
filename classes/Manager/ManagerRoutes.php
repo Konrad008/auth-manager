@@ -1,4 +1,5 @@
 <?php
+
 namespace Manager;
 
 use \Manager\Controllers\AuthManager;
@@ -7,11 +8,13 @@ use \Manager\Controllers\AuthManager;
  * Class ManagerRoutes
  * @package Manager
  */
-class ManagerRoutes {
+class ManagerRoutes
+{
     /**
      * @return array
      */
-    public function getRoutes() {
+    public function getRoutes()
+    {
 
         $managerController = new AuthManager();
 
@@ -19,66 +22,66 @@ class ManagerRoutes {
             '' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'mainPage'
+                    'action' => 'mainPage',
                 ],
                 'GET' => [
                     'controller' => $managerController,
-                    'action' => 'mainPage'
+                    'action' => 'mainPage',
                 ]
             ],
             'useradd' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'userAdd'
+                    'action' => 'userAdd',
                 ],
                 'GET' => [
                     'controller' => $managerController,
-                    'action' => 'userAdding'
+                    'action' => 'userAdding',
                 ]
             ],
             'groupadd' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'groupAdd'
+                    'action' => 'groupAdd',
                 ],
                 'GET' => [
                     'controller' => $managerController,
-                    'action' => 'groupAdding'
+                    'action' => 'groupAdding',
                 ]
             ],
             'userdelete' => [
                 'POST' => [
                     'controller' => $managerController,
                     'action' => 'userDelete',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ],
                 'GET' => [
                     'controller' => $managerController,
                     'action' => 'userDelete',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ]
             ],
             'groupdelete' => [
                 'POST' => [
                     'controller' => $managerController,
                     'action' => 'groupDelete',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ],
                 'GET' => [
                     'controller' => $managerController,
                     'action' => 'groupDelete',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ]
             ],
             'useredit' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'userEdit'
+                    'action' => 'userEdit',
                 ],
                 'GET' => [
                     'controller' => $managerController,
                     'action' => 'userEditing',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ]
             ],
             'groupedit' => [
@@ -89,18 +92,18 @@ class ManagerRoutes {
                 'GET' => [
                     'controller' => $managerController,
                     'action' => 'groupEditing',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ]
             ],
             'changepass' => [
                 'POST' => [
                     'controller' => $managerController,
-                    'action' => 'passwordChange'
+                    'action' => 'passwordChange',
                 ],
                 'GET' => [
                     'controller' => $managerController,
                     'action' => 'passwordChanging',
-                    'urlVars' => true
+                    'urlVars' => true,
                 ]
             ],
         ];

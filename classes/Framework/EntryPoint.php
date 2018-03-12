@@ -1,4 +1,5 @@
 <?php
+
 namespace Framework;
 
 use Manager\ManagerRoutes;
@@ -7,7 +8,9 @@ use Manager\ManagerRoutes;
  * Class EntryPoint
  * @package Framework
  */
-class EntryPoint {
+class EntryPoint
+{
+
     /**
      * @var string
      */
@@ -25,13 +28,15 @@ class EntryPoint {
      */
     private $routevars;
 
+
     /**
      * EntryPoint constructor.
      * @param string $route
      * @param string $method
      * @param ManagerRoutes $routes
      */
-    public function __construct(string $route, string $method, ManagerRoutes $routes) {
+    public function __construct(string $route, string $method, ManagerRoutes $routes)
+    {
         $this->route = $route;
         $this->method = $method;
 
@@ -44,30 +49,23 @@ class EntryPoint {
         $this->checkUrl();
     }
 
-    /**
-     *
-     */
-    private function processUrl() {
-        $args = explode("/", $this->route);
+    private function processUrl()
+    {
+        $args = explode('/', $this->route);
         $this->route = array_shift($args);
         $this->routevars = $args;
     }
 
-    /**
-     *
-     */
-    private function checkUrl() {
-
-        // Ask about differences between httpie responses and browser.
+    private function checkUrl()
+    {
 
         if ($this->route !== strtolower($this->route)) {
             http_response_code(301);
-            header('location: ' . strtolower($this->route));
+            header('Location: ' . strtolower($this->route));
         }
-        if (!array_key_exists(strtolower($this->route), $this->routes)){
+        if (!array_key_exists(strtolower($this->route), $this->routes)) {
             http_response_code(404);
-//            die;
-            header('location: /');
+            header('Location: /');
         }
     }
 
@@ -76,26 +74,28 @@ class EntryPoint {
      * @param array $variables
      * @return string
      */
-    private function loadTemplate($templateFileName, $variables = []) {
+    private function loadTemplate($templateFileName, $variables = [])
+    {
         extract($variables);
 
         ob_start();
-        include  __DIR__ . '/../../templates/' . $templateFileName;
+
+        if (isset($templateFileName)) {
+            include __DIR__ . '/../../templates/' . $templateFileName;
+        }
 
         return ob_get_clean();
     }
 
-    /**
-     *
-     */
-    public function run() {
+    public function run()
+    {
+        $controller = $this->routes[$this->route][$this->method]['controller'];
+        $action = $this->routes[$this->route][$this->method]['action'];
 
-        $controller = ($this->routes)[$this->route][$this->method]['controller'];
-        $action = ($this->routes)[$this->route][$this->method]['action'];
-
-        if (isset(($this->routes)[$this->route][$this->method]['urlVars'])) {
+        if (isset($this->routes[$this->route][$this->method]['urlVars'])) {
             $page = $controller->$action($this->routevars);
         } else {
+            $action = (string)$action;
             $page = $controller->$action();
         }
 
@@ -107,6 +107,6 @@ class EntryPoint {
             $output = $this->loadTemplate($page['template']);
         }
 
-        include  __DIR__ . '/../../templates/layout.html.php';
+        include __DIR__ . '/../../templates/layout.html.php';
     }
 }

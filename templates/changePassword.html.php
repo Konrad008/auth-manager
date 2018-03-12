@@ -1,6 +1,6 @@
 <form method="POST">
     <fieldset>
-        <input type="hidden" value="<?=$user?>" name="user">
+        <input type="hidden" value="<?= $user ?>" name="user">
         <label>
             <p>New password</p>
             <input type="text" placeholder="top-secret" name="password">
