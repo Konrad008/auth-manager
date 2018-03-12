@@ -6,19 +6,19 @@
 2. Yaml parser `php7.2-yaml`
 3. Server modules for .htpasswd authentication.
 
-###Set-up
+### Set-up
 
-######Create files (examples in repository)
+###### Create files (examples in repository)
 
 * .htaccess
 * .htpasswd (user: `admin` password: `admin`)
 * .htgroup
 
-######Edit config.yaml and .htaccess
+###### Edit config.yaml and .htaccess
 
 * Point where .htaccess and .htgroup are stored.
 
-######Premissions
+###### Premissions
 
 * Set server as the owner of the files .htaccess and .htpasswd.
 
